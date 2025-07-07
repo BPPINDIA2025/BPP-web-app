@@ -1,14 +1,20 @@
-
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>OAuth Redirect</title>
-    <script>
-      // Automatically close the window after successful redirection
-      window.close();
-    </script>
-  </head>
-  <body>
-    <p>Signing in... Please wait.</p>
-  </body>
+<head>
+  <meta charset="utf-8">
+  <title>OAuth Callback</title>
+  <script>
+    // Redirect back to the app with the full URL containing access_token or code
+    (function () {
+      if (window.opener && window.opener.esriId) {
+        window.opener.esriId._oAuthCallback(window.location.href);
+        window.close();
+      } else {
+        document.body.innerHTML = "<h3>Unable to complete sign-in. Please close this window.</h3>";
+      }
+    })();
+  </script>
+</head>
+<body>
+</body>
 </html>
