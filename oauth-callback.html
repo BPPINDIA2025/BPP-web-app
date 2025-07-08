@@ -1,14 +1,24 @@
-
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>OAuth Redirect</title>
-    <script>
-      // Automatically close the window after successful redirection
-      window.close();
-    </script>
-  </head>
-  <body>
-    <p>Signing in... Please wait.</p>
-  </body>
+<head>
+  <title>OAuth 2.0 Redirect</title>
+  <script>
+    (function () {
+      const urlParams = new URLSearchParams(window.location.search);
+      const code = urlParams.get("code");
+      const state = urlParams.get("state");
+      const openerUrl = window.location.origin + "/BPP-web-app/";
+
+      if (code && state) {
+        window.opener.location.href = openerUrl + "#code=" + code + "&state=" + state;
+        window.close();
+      } else {
+        document.body.innerText = "OAuth redirect failed.";
+      }
+    })();
+  </script>
+</head>
+<body>
+  <p>Completing login...</p>
+</body>
 </html>
