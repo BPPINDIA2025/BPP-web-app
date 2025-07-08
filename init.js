@@ -1,4 +1,3 @@
-// ArcGIS Web App OAuth-Enabled init.js (Simplified)
 require(["esri/identity/OAuthInfo", "esri/identity/IdentityManager"], function(OAuthInfo, esriId) {
   const info = new OAuthInfo({
     appId: "ywdN79Ugi2eGhzvp",
