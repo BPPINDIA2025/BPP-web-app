@@ -117,6 +117,8 @@ var
     apiUrl = queryObject.apiurl;
   }
   window.appInfo = {isRunInPortal: !isXT};
+  window.oauthAppId = "ywdN79Ugi2eGhzvp"; // ✅ Your ArcGIS OAuth Client ID
+
   if (!apiUrl) {
     if (isXT) {
       apiUrl = 'https://js.arcgis.com/' + apiVersion;
